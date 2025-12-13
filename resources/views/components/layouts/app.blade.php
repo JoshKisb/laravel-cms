@@ -15,16 +15,20 @@
             }
         </style>
 
-        @filamentStyles
+        @livewireStyles 
         @vite('resources/css/app.css')
     </head>
 
     <body class="antialiased">
-        {{ $slot }}
 
-        @livewire('notifications')
+    <section>
+        <x-navigation />
+            {{ $slot }}
+        <x-footer />
+    </section>
 
-        @filamentScripts
-        @vite('resources/js/app.js')
-    </body>
+    @livewire('notifications')
+    @livewireScripts
+    @vite('resources/js/app.js')
+</body>
 </html>
