@@ -12,7 +12,10 @@ class PageController extends Controller
     {
         $page = Page::where('slug', $slug ?: 'home')->firstOrFail();
 
-        return view('page', compact('page'));
+        $template = $page->template ?: 'default';
+
+        return view("templates.$template", compact('page'));
     }
+
 
 }

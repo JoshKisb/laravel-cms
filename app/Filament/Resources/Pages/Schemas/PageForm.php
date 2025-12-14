@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Pages\Schemas;
 
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
@@ -20,6 +21,12 @@ class PageForm
                 Textarea::make('content')
                     ->required()
                     ->columnSpanFull(),
+                Select::make('template')
+                    ->options([
+                        'default' => 'Default',
+                        'home' => 'Home',
+                    ])
+                    ->required(),                
                 TextInput::make('status')
                     ->required()
                     ->default('draft'),
