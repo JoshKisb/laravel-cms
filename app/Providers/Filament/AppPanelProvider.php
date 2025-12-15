@@ -2,10 +2,15 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Resources\MenuItemResource;
+use App\Filament\Resources\MenuResource;
 use App\Http\Middleware\SetPermissionsTeam;
+use App\Models\Menu;
+use App\Models\MenuItem;
 use App\Models\Role;
 use App\Models\Team;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
+use Biostate\FilamentMenuBuilder\FilamentMenuBuilderPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -31,6 +36,7 @@ class AppPanelProvider extends PanelProvider
             ->default()
             ->id('app')
             ->path('/app')
+            ->viteTheme('resources/css/filament/app/theme.css')
             ->colors(['primary' => Color::Gray])
             ->brandLogo('https://laravel.com/img/logomark.min.svg')
             ->brandLogoHeight('40px')
@@ -80,10 +86,14 @@ class AppPanelProvider extends PanelProvider
                     ->configureTeamModels(
                         teamModel: Team::class,
                         roleModel: Role::class,
-                    )
-                 ,
-                 FilamentShieldPlugin::make()
-                    ->navigationGroup("Administration")
+                    ),
+                FilamentShieldPlugin::make()
+                    ->navigationGroup("Administration"),
+                FilamentMenuBuilderPlugin::make()
+                    ->usingMenuModel(Menu::class)
+                    ->usingMenuItemModel(MenuItem::class)
+                    ->usingMenuResource(MenuResource::class)
+                    ->usingMenuItemResource(MenuItemResource::class),
             ]);
     }
 

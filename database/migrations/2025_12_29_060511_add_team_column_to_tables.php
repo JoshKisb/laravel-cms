@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     protected $tables = [
-        "pages"
+        "pages", "menus", "menu_items"
     ];
     /**
      * Run the migrations.
