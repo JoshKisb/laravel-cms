@@ -15,19 +15,31 @@ class PageSeeder extends Seeder
      */
     public function run(): void
     {
-        $page = [
-            'title' => 'Home',
-            'slug' => 'home',
-            'content' => '',
-            'template' => 'home',
-            'status' => 'published',
-            'user_id' => User::first()->id,
+        $pages = [
+            [
+                'title' => 'Home',
+                'slug' => 'home',
+                'content' => '',
+                'template' => 'home',
+                'status' => 'published',
+                'user_id' => User::first()->id,
+            ],
+            [
+                'title' => 'About',
+                'slug' => 'about',
+                'content' => '',
+                'template' => 'default',
+                'status' => 'published',
+                'user_id' => User::first()->id,
+            ]
         ];
 
-        if (env('MULTITENANCY', false)) 
-            $page["team_id"] = Team::first()->id;
-
-        Page::create($page);
+        foreach ($pages as $page) {
+            if (env('MULTITENANCY', false)) 
+                $page["team_id"] = Team::first()->id;
+    
+            Page::create($page);
+        }
         
     }
 }
