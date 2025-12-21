@@ -20,7 +20,7 @@ class CollectionItemResource extends Resource
 {
     protected static ?string $model = CollectionItem::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentText;
 
     protected static ?string $modelLabel = 'Content';
 
