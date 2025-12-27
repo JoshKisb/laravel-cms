@@ -24,6 +24,10 @@ class DatabaseSeeder extends Seeder
             CoreSetupSeeder::class,
             PageSeeder::class,
             MenuSeeder::class,
+            CollectionSeeder::class,
+            CategorySeeder::class,
+            TagSeeder::class,
+            CollectionItemSeeder::class,
         ]);
     }
 }
