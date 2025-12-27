@@ -23,11 +23,11 @@ class DatabaseSeeder extends Seeder
             // RoleSeeder::class,
             CoreSetupSeeder::class,
             PageSeeder::class,
-            MenuSeeder::class,
             CollectionSeeder::class,
             CategorySeeder::class,
             TagSeeder::class,
             CollectionItemSeeder::class,
+            MenuSeeder::class,
         ]);
     }
 }

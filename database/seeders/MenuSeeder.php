@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Collection;
 use App\Models\Menu;
 use App\Models\MenuItem;
 use App\Models\Page;
@@ -28,6 +29,12 @@ class MenuSeeder extends Seeder
                     'name' => 'About',
                     "menuable_type" => Page::class,
                     "menuable_id" => Page::where("slug", "about")->first()?->id,
+                    "type" => "model",
+                ],
+                [
+                    'name' => 'Blog',
+                    "menuable_type" => Collection::class,
+                    "menuable_id" => Collection::where("slug", "blog")->first()?->id,
                     "type" => "model",
                 ],
                 // [

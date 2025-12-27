@@ -4,6 +4,7 @@ return [
     'models' => [
         // 'Product' => 'App\\Models\\Product',
         'Page' => \App\Models\Page::class,
+        'Collection' => \App\Models\Collection::class,
     ],
     'api_enabled' => true,
     'cache' => [
